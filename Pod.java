@@ -3,6 +3,8 @@ import java.util.function.Function;
 public class Pod {
     private String name;
     private Function<Double, Double> velocityFunction;
+    private int estimate[];
+    private estimate[] estimateValues;
 
     public Pod(String name, Function<Double, Double> velocityFunction) {
         this.name = name;
@@ -23,6 +25,18 @@ public class Pod {
         // number of slices, as will be described in class. If this method is not
         // passed at least one slice, throw an IllegalArgumentException with the
         // message "At least one slice required".
+         if (slices < 1) {
+            throw new IllegalAccessException("At least one slice required");
+        } else {
+            double sliceNumber = (endTime - startTime) / slices;
+
+           
+             int estimation = 0;
+            this.estimateValues = new estimate[slices];
+             for (int i = 0; i < slices; i++) {
+             estimate[i] = estimation += estimate[i];
+             }
+
         return 0.0;
     }
 }
