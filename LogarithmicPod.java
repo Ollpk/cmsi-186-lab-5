@@ -1,0 +1,11 @@
+public class LogarithmicPod extends Pod {
+    public LogarithmicPod(String name, double a, double b) {
+        super(name, t -> a * Math.log(b * (t + 1)));
+        return;
+    }
+
+    public double distanceTraveled(double startTime, double endTime) {
+        return (endTime - startTime) * (v(startTime) + v(endTime)) / 2.0;
+
+    }
+}
