@@ -29,7 +29,7 @@ public class Pod {
 
         double timeSlice = (endTime - startTime) / slices;
 
-        int estimation = 0;
+        double estimation = 0;
         for (double t = startTime; t < endTime; t += timeSlice) {
             estimation += v(t) * timeSlice;
         }

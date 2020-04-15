@@ -1,15 +1,14 @@
-import java.util.Arrays;
-
 public class PolynomialPod extends Pod {
-    public PolynomialPod(String name, Double[] polynomial) {
-        super(name, t -> polynomial[(int) Math.round(t)] * (Math.pow(t,
-                Arrays.asList(polynomial[(int) Math.round(t)]).indexOf(polynomial[(int) Math.round(t)]))));
-        return;
+    public PolynomialPod(String name, double... coefficients) {
+        super(name, t -> evaluatePolynomial(coefficients, t));
     }
 
-    public double distanceTraveled(double startTime, double endTime) {
-        return (endTime - startTime) * (v(startTime) + v(endTime)) / 2.0;
+    private static double evaluatePolynomial(double[] coefficients, double x) {
+        var result = 0.0;
+        for (var i = 0; i < coefficients.length; i++) {
 
+            result += coefficients[i] * Math.pow(x, i);
+        }
+        return result;
     }
-
 }
