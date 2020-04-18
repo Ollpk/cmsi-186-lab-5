@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 public class PodRace {
     public static Set<Pod> race(double distance, Set<Pod> racers, double timeSlice, double timeLimit) {
-        // IMPLEMENT THIS METHOD
         var positions = new HashMap<Pod, Double>();
         var winners = new HashSet<Pod>();
 
@@ -17,24 +16,26 @@ public class PodRace {
         }
 
         for (double t = 0.0; t < timeLimit; t += timeSlice) {
+            var hasWon = false;
             for (var pod : racers) {
-                positions.put(pod, pod.v(t));
 
-                if (positions.get(pod) > distance) {
+                if (positions.containsKey(pod)) {
+                    positions.put(pod, pod.v(t) + positions.get(pod));
+                } else {
+                    positions.put(pod, pod.v(t));
+                }
+
+                if (positions.get(pod) >= distance) {
                     winners.add(pod);
-                    System.out.print(winners);
+                    hasWon = true;
+
                 }
 
             }
-
+            if (hasWon == true) {
+                break;
+            }
         }
-
-        // find out where pod is at that time t+timeslice
-        // means update the map with the new positions
-
-        // if that position is greater than the distance of the race, return the racer
-        // as a winner (however there may/will be more than 1)
-        // add that to the set of winners
 
         return winners;
     }

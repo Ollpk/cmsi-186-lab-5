@@ -1,7 +1,6 @@
 # CMSI 186 Lab 5 Pod Racing Starter Code
 
-This repository contains the starter code for the Pod Racing laboratory assignment. You will find some unfinished Java classes that you will need to complete. You will also have to add some new classes of your own.
+In this program, I have created a fun racing simulation that allows for the user to enter in their pods based on the types of pods I provide for the user to choose between. The user can also edit the parameters of the race itself, able to edit the time limit and the amount of slices to determine how accurate the calculations should be made in determining the winners of the race. The race allows for more than one winner (ties) and will have no winners if nothing is entered in. If the user enters a pod that does not actually move forward, it will not win the race. 
 
-Import this repository into a new repository of your own and write the code according to the lab [instructions](https://cs.lmu.edu/~ray/classes/plab/lab/5/). Use the provided test scripts as you complete the laboratory assignment.
 
-In your new repository, don’t forget to completely edit this README file, as _your_ repository will not contain any “unfinished Java programs.” Consider adding a fun image, but not _too_ fun, as your GitHub repository will be checked by prospective employers.
+![image of Pod Racers](https://lumiere-a.akamaihd.net/v1/images/databank_podracer_01_169_89a8621d.jpeg?region=0%2C0%2C1560%2C780)

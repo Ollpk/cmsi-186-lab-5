@@ -8,13 +8,22 @@ public abstract class TestSuite {
     int failures = 0;
     int errors = 0;
 
-    private static String red(String s) { return "\u001B[31m" + s + "\u001B[0m"; }
-    private static String green(String s) { return "\u001B[32m" + s + "\u001B[0m"; }
+    private static String red(String s) {
+        return "\u001B[31m" + s + "\u001B[0m";
+    }
+
+    private static String green(String s) {
+        return "\u001B[32m" + s + "\u001B[0m";
+    }
 
     static class Test {
         String name;
         Runnable code;
-        Test(String name, Runnable code) { this.name = name; this.code = code; }
+
+        Test(String name, Runnable code) {
+            this.name = name;
+            this.code = code;
+        }
     }
 
     abstract Test[] getTests();
@@ -85,7 +94,7 @@ public abstract class TestSuite {
         suite.totalTests = 0;
         suite.failures = 0;
         suite.errors = 0;
-        for (var test: suite.getTests()) {
+        for (var test : suite.getTests()) {
             suite.totalTests += 1;
             System.out.println();
             System.out.print("• " + test.name);
@@ -99,8 +108,11 @@ public abstract class TestSuite {
         System.out.printf("%n%s%n", "-".repeat(80));
         var successes = suite.totalTests - suite.failures - suite.errors;
         System.out.printf("Total  : %d%n", suite.totalTests);
-        if (successes > 0) System.out.printf(green("Passed : %d%n"), successes);
-        if (suite.failures > 0) System.out.printf(red("Failed : %d%n"), suite.failures);
-        if (suite.errors > 0) System.out.printf(red("Errors : %d%n"), suite.errors);
+        if (successes > 0)
+            System.out.printf(green("Passed : %d%n"), successes);
+        if (suite.failures > 0)
+            System.out.printf(red("Failed : %d%n"), suite.failures);
+        if (suite.errors > 0)
+            System.out.printf(red("Errors : %d%n"), suite.errors);
     }
 }
